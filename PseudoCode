@@ -3,4 +3,5 @@ Rock paper scissor game vs computer and score table
 Get the computer choice
 Get the human choice
 Determine who won between those 2 choices
-Save the score and restart it when someone wins 3 out of 5 games
+Save the score
+Play another round and repeat until someone wins 3 out of 5 games
