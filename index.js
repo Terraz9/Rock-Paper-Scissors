@@ -4,7 +4,7 @@ const scissorsBtn = document.querySelector(".scissors");
 const displayResult = document.querySelector(".displayResult");
 
 function getComputerChoice() {
-    let randomNumber = Math.floor(Math.random() * 3)
+    let randomNumber = Math.floor(Math.random() * 3);
     switch (randomNumber) {
         case 0:
         computerChoice = 'rock';
@@ -24,12 +24,14 @@ function getComputerChoice() {
 
 
 function getHumanChoice() {
-    let humanSelection = prompt('Choose: Rock, Paper or Scissors');
-    let humanSelectionLowerCase = humanSelection.toLowerCase();
-    return humanSelectionLowerCase;
+    let humanSelection = ""
+    rockBtn.addEventListener("click", () => {humanSelection ='rock';});
+    paperBtn.addEventListener("click", () => {humanSelection ='paper';});
+    scissorsBtn.addEventListener("click", () => {humanSelection ='scissors';});    
+    return humanSelection;
 }
 
-
+console.log(rockBtn.value)
 
 function playGame() {
     let humanScore = 0; 
