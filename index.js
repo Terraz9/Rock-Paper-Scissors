@@ -90,7 +90,7 @@ playRound();
              console.log(`The winner is Human! Score: Human: ${humanScore}, Computer: ${computerScore}`)        
          }
          else if (computerScore == 3) {
-             console.log(`The winner is Computer! Score: Human: ${humanScore}, Computer ${computerScore}`)
+             console.log(`The winner is Computer! Score: Human: ${humanScore}, Computer: ${computerScore}`)
          }
      }
 }
