@@ -25,19 +25,14 @@ function getComputerChoice() {
     
 }
 
-
-function getHumanChoice() {
-    let humanSelection = ""
-    rockBtn.addEventListener("click", () => {humanSelection ='rock';});
-    paperBtn.addEventListener("click", () => {humanSelection ='paper';});
-    scissorsBtn.addEventListener("click", () => {humanSelection ='scissors';});    
-    return humanSelection;
-}
+    rockBtn.addEventListener("click", () => {let humanSelection ='rock'; playRound(humanSelection);});
+    paperBtn.addEventListener("click", () => {let humanSelection ='paper'; playRound(humanSelection);});
+    scissorsBtn.addEventListener("click", () => {let humanSelection ='scissors'; playRound(humanSelection);});
 
 
-function playRound() {
+function playRound(playerSelection) {
 
-    const humanChoice = getHumanChoice();
+    const humanChoice = playerSelection;
     const computerChoice = getComputerChoice();
     
     
@@ -51,60 +46,55 @@ function playRound() {
         let lostMessage2 = "You've lost! Paper beats Rock"
         let lostMessage3 = "You've lost! Scissors beats Paper"
     
-    
-
-        if (humanChoice === computerChoice) {
-            console.log(tieMessage);
+    if (humanScore === 3 || computerScore === 3) {
+            if (humanScore === 3) {
+                console.log(`The winner is Human! Score: Human: ${humanScore}, Computer: ${computerScore}`);
+                displayResult.textContent = `The winner is Human! Score: Human: ${humanScore}, Computer: ${computerScore}`;
+            }
+            else if (computerScore === 3) {
+                console.log(`The winner is Computer! Score: Human: ${humanScore}, Computer: ${computerScore}`)
+                displayResult.textContent = `The winner is Computer! Score: Human: ${humanScore}, Computer: ${computerScore}`;
+            }
         }
-        else if (humanChoice == 'rock' && computerChoice == 'scissors' ) {
-            console.log(winMessage1);
-            return humanScore++;
+    else if (humanScore < 3 && computerScore <3 ) {
+            if (humanChoice === computerChoice) {
+                console.log(tieMessage);
+                displayResult.textContent = tieMessage;
+            }
+            else if (humanChoice == 'rock' && computerChoice == 'scissors' ) {
+                console.log(winMessage1);
+                displayResult.textContent = winMessage1;
+                return humanScore++;
+            }
+            else if (humanChoice == 'paper' && computerChoice == 'rock' ) {
+                console.log(winMessage2);
+                displayResult.textContent = winMessage2
+                return humanScore++;
+            }
+            else if (humanChoice == 'scissors' && computerChoice == 'paper' ) {
+                console.log(winMessage3);
+                displayResult.textContent = winMessage3
+                return humanScore++;
+            }
+            else if (computerChoice == 'rock' && humanChoice == 'scissors' ) {
+                console.log(lostMessage1);
+                displayResult.textContent = lostMessage1
+                return computerScore++;
+            }
+            else if (computerChoice == 'paper' && humanChoice == 'rock' ) {
+                console.log(lostMessage2);
+                displayResult.textContent = lostMessage2
+                return computerScore++;
+            }
+            else if (computerChoice == 'scissors' && humanChoice == 'paper' ) {
+                console.log(lostMessage3);
+                displayResult.textContent = lostMessage3
+                return computerScore++;
+            }
+            else if (humanChoice != 'rock' || humanChoice != 'paper' || humanChoice != 'scissors') {
+                console.log('No valid selection');
+                displayResult.textContent = 'No valid selection';
+            }
+            
         }
-        else if (humanChoice == 'paper' && computerChoice == 'rock' ) {
-             console.log(winMessage2);
-            return humanScore++;
-        }
-        else if (humanChoice == 'scissors' && computerChoice == 'paper' ) {
-             console.log(winMessage3);
-            return humanScore++;
-        }
-        else if (computerChoice == 'rock' && humanChoice == 'scissors' ) {
-             console.log(lostMessage1);
-            return computerScore++;
-        }
-        else if (computerChoice == 'paper' && humanChoice == 'rock' ) {
-             console.log(lostMessage2);
-            return computerScore++;
-        }
-        else if (computerChoice == 'scissors' && humanChoice == 'paper' ) {
-             console.log(lostMessage3);
-            return computerScore++;
-        }
-        else if (humanChoice != 'rock' || humanChoice != 'paper' || humanChoice != 'scissors') {
-             console.log('No valid selection');
-        }
-    
-    }
-
-
-console.log(rockBtn.value)
-
-function playGame() {
-
-
-while (humanScore < 3 && computerScore < 3) {        
-playRound();
 }
-
-     if (humanScore == 3 || computerScore == 3) {
-         if (humanScore == 3) {
-             console.log(`The winner is Human! Score: Human: ${humanScore}, Computer: ${computerScore}`)        
-         }
-         else if (computerScore == 3) {
-             console.log(`The winner is Computer! Score: Human: ${humanScore}, Computer: ${computerScore}`)
-         }
-     }
-}
-
-
-playGame();
