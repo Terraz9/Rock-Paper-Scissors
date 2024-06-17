@@ -1,3 +1,8 @@
+const rockBtn = document.querySelector(".rock");
+const paperBtn = document.querySelector(".paper");
+const scissorsBtn = document.querySelector(".scissors");
+const displayResult = document.querySelector(".displayResult");
+
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3)
     switch (randomNumber) {
