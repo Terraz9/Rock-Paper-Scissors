@@ -55,6 +55,8 @@ function playRound(playerSelection) {
                 console.log(`The winner is Computer! Score: Human: ${humanScore}, Computer: ${computerScore}`)
                 displayResult.textContent = `The winner is Computer! Score: Human: ${humanScore}, Computer: ${computerScore}`;
             }
+            humanScore = 0;
+            computerScore = 0;
         }
     else if (humanScore < 3 && computerScore <3 ) {
             if (humanChoice === computerChoice) {
